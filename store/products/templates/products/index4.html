@@ -1,0 +1,196 @@
+{% extends 'products/base.html' %}
+{% load static %}
+
+{% block CSS %}
+  <link rel="stylesheet" href="{% static 'css/index4.css' %}">
+{% endblock %}
+
+{% block content %} 
+  <div id="about">
+    <div class="title">CATALOG</div>    
+  </div>
+
+  <form id="bookingForm" class="container" method="post" action="{% url 'index4' %}">
+    {% csrf_token %}
+    <div class="input-container">
+        <input type="date" id="checkin" name="checkin" required>
+    </div>
+    <div class="input-container">
+        <input type="date" id="checkout" name="checkout" required>
+    </div>
+    <div class="input-container">
+        {{ form.room_type }}
+    </div>
+    <div class="input-container">
+        {{ form.rooms }}
+    </div>
+    <div class='button-container'>
+        <button type="button" id="resetButton" class="btn">reset</button>
+        <button type="submit" id="searchButton" class="btn">search</button>
+    </div>
+</form>
+
+  {% if user.is_authenticated and form.checkin.value and form.checkout.value and form.room_type.value and form.rooms.value %}
+    
+  {% else %}
+    <div class='subtitle-hint'>*чтобы забронировать номер установите фильтры и войдите в аккаунт</div>
+  {% endif %}
+   
+<div class="center-container">
+  {% if user.is_authenticated and user.is_staff %}
+  <div class='add-btn'>
+    <a href="{% url 'index9' %}" class='btn'>Add</a>
+  </div>
+  {% endif %}
+  {% for number in numbers %}
+    <div class="rounded-rectangle">
+        <img src="{{ number.image }}" id="{{number.id_image}}">
+        <div class="info-container">
+            <div id="{{number.id_name}}">
+                <div class="subtitle-row">
+                    <div class="subtitle1">type:</div>
+                    <div class="subtitle" id="roomType_{{ number.id }}">{{number.characteristics.type}}</div>
+                </div>
+                <div class="subtitle-row">
+                    <div class="subtitle1">rooms:</div>
+                    <div class="subtitle" id="numberOfRooms_{{ number.id }}">{{number.characteristics.number_of_rooms}}</div>
+                </div>
+                <div class="subtitle-row">
+                    <div class="subtitle1">floor:</div>
+                    <div class="subtitle" id="floor_{{ number.id }}">{{number.characteristics.floor}}</div>
+                </div>
+                <div class="subtitle-row">
+                    <div class="subtitle1">beds:</div>
+                    <div class="subtitle" id="numberOfBeds_{{ number.id }}">{{number.characteristics.number_of_beds}}</div>
+                </div>
+                <div class="subtitle-row">
+                    <div class="subtitle1">price:</div>
+                    <div class="subtitle" id="price_{{ number.id }}">{{number.characteristics.price}}</div>
+                </div>
+                
+                {% if user.is_authenticated and form.checkin.value and form.checkout.value and form.room_type.value and form.rooms.value %}
+                  <a href="{% url 'reservation_number' number.id %}" class="change-data-btn">reservation</a>
+                {% endif %}
+              
+                {% if user.is_authenticated and user.is_staff %}
+                  <a class="change-data-btn open-modal" href="#" data-id="{{ number.id }}">change</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+<!-- Модальное окно -->
+<div id="changeModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class='modal-title'>Change characteristics</div>
+    <form id="changeForm" class='data-content' method="post" action="{% url 'update_number' %}">
+      {% csrf_token %}
+      <input type="hidden" name="number_id" id="number_id">
+      <div class="modal-input-container">
+        <label for="room_type" class='input-title'>Room type:</label>
+          <select class='custom-select-option' name="room_type" id="room_type">
+            <option value="single">single</option>
+            <option value="superios">superios</option>
+            <option value="family">family</option>
+          </select>
+      </div>
+      <div class="modal-input-container">
+        <label for="price" class='input-title'>Price:</label>
+        <input class='input-text' type="text" name="price" id="price" step="0.01" min="0" oninput="validatePrice()">
+      </div>
+      <div class="modal-input-container">
+        <label for="number_of_beds" class='input-title'>Quantity beds:</label>
+        <input class='input-text' type="number" name="number_of_beds" id="number_of_beds" min="1" max='3' oninput="validatePrice()">
+      </div>
+      <div class="modal-input-container">
+        <label for="floor" class='input-title'>Floor:</label>
+        <input class='input-text-block' type="text" name="floor" id="floor" min="1"  readonly>
+      </div>
+      <div class="modal-input-container">
+        <label for="number_of_rooms" class='input-title'>Quantity rooms:</label>
+        <input class='input-text-block' type="text" name="number_of_rooms" id="number_of_rooms" min="1" readonly>
+      </div>
+      <button type="submit" class="btn-modal">Save</button>
+      <button type="button" class="btn-modal" onclick="deleteNumber()">Delete</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+<footer class="footer">
+    <div class="left">
+      <div class="bottom-subtitle">Spain, Bilbao</div>
+      <div class="bottom-subtitle">Calle iscar peyra 15-17</div>
+    </div>
+    <div class="right">
+      <div class="bottom-subtitle">General manager:</div>
+      <div class="bottom-subtitle">Eugenia Marcos Lopez</div>
+    </div>
+</footer>
+{% endblock %}
+
+{% block script%} 
+<script src="{% static 'js/catalog.js' %}"></script>
+<script>
+// Сброс формы
+document.getElementById('resetButton').addEventListener('click', function() {
+    document.getElementById('bookingForm').reset(); // Сбросить значения формы
+    window.location.href = "{% url 'index4' %}"; // Перезагрузить страницу для сброса фильтров
+});
+
+// Функция для удаления номера
+function deleteNumber() {
+    const numberElement = document.getElementById('number_id');
+    const numberId = numberElement.value; // Получаем ID номера
+    const modal = document.getElementById('changeModal'); // Получаем модальное окно
+
+    if (confirm('Вы уверены, что хотите удалить этот номер?')) {
+        fetch(`/delete_number/${numberId}/`, { // Используйте обратные кавычки
+            method: 'DELETE',
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'), // Получаем CSRF-токен
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: numberId })
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Номер успешно удален.');
+                modal.style.display = 'none'; // Закрыть модальное окно
+                location.reload(); // Обновить страницу
+            } else {
+                alert('Ошибка при удалении номера.');
+            }
+        })
+        .catch(error => {
+            console.error('Ошибка:', error);
+        });
+    }
+}
+
+// Функция для получения CSRF-токена
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Проверяем, начинается ли cookie с нужного имени
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+</script>
+
+
+
+{% endblock %}

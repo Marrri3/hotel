@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/index9.CSS' %}">
+    <title>{{ title }}</title>
+</head>
+<body>
+
+
+<div class="center-container">
+        <div class="info-container">
+            <div class='add-title'>Add number</div>
+            <!-- Поле для загрузки изображения -->
+            <div class="add-input-container">
+                <label for="image_upload" class='input-title'>Load image:</label>
+                <input class='image-upload' type="file" id="image_upload" accept="image/*">
+            </div>
+            <div class="add-input-container">
+                <label for="room_type" class='input-title'>Type number</label>
+                <select class='custom-select-option' name="room_type" id="room_type">
+                    <option value=''>type</option>
+                    <option value="single">single</option>
+                    <option value="superios">superios</option>
+                    <option value="family">family</option>
+                </select>
+            </div>
+            <div class="add-input-container">
+                <label for="price" class='input-title'>Price</label>
+                <input class='input-text' type="text" name="price" id="price" step="0.01" min="0" oninput="validateData()" placeholder='0.00'>
+            </div>
+            <div class="add-input-container">
+                <label for="number_of_beds" class='input-title'>Quantity of beds</label>
+                <input class='input-text' type="number" name="number_of_beds" id="number_of_beds" min="1" max='3'placeholder='1' oninput="validateData()">
+            </div>
+            <div class="add-input-container">
+                <label for="floor" class='input-title'>Floor</label>
+                <select class='custom-select-option' name="floor" id="floor">
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div class="add-input-container">
+                <label for="number_of_rooms" class='input-title'>Quantity of rooms</label>
+                <select class='custom-select-option' name="number_of_rooms" id="number_of_rooms">
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div class='button-container'>
+                <button type='submit' class='add-btn'>Add</button>
+                <a href="{% url 'index4' %}" class='cancel-btn'>Cancel</a>
+            </div>         
+        </div>
+</div>
+<script src="{% static 'js/add_number.js' %}"></script>
+
+</body>
+ 

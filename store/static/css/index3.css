@@ -1,0 +1,246 @@
+body{
+    font-family: 'Roboto Slab';
+    background-color: #EFEBE9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    text-align: center;
+}
+
+.navbar-one {
+    display: flex;
+    font-size: 24px;
+    justify-content: space-between;
+    background-color: #F5F4F3;
+    padding: 0px 10px;
+    width: 100%; /* Задает навбар шириной во всю страницу */
+    position: fixed; /* Фиксирует навбар в верхней части страницы */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Обеспечивает поверхностное положение навбара */
+}
+
+.navbar-left, .navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-one a {
+    color: black;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center; 
+}
+
+.navbar-one a:hover {
+    color: #2E7204;
+}
+
+.navbar-one a#home {
+    color: #2E7204; 
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #2E7204;
+    margin: 4px;
+}
+
+.dropdown {
+    display: none;
+    flex-direction: column;
+    background-color: #F5F4F3;
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    z-index: 1;
+}
+
+.dropdown a {
+    padding: 10px;
+    text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-left, .navbar-right {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .navbar-one.active .dropdown {
+        display: flex;
+    }
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+
+.input-container-left, .input-container-right {
+    width: 48%; /* Ширина колонок */
+}
+
+.button-container {
+    margin-top: 20px; /* Отступ сверху для кнопок */
+}
+
+.order-history {
+    width: 65%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    border: none;
+}
+
+
+.title {
+    color: #2E7204;
+    font-size: 44px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-left: 20px;
+}
+
+.input-container {
+    display: flex; 
+    text-align: center; 
+    width: 100%; 
+    gap: 20px;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.input-container label {
+    display: block;
+    margin-bottom: 1px; 
+    margin-top: 5px;
+    font-size: 1.5rem; 
+}
+
+.input-container input {
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-left: 0px;
+    font-size: 15px;
+    text-align: left !important;
+
+}
+
+.subtitle {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+
+.footer {
+    font-size: 20px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer .left, footer.right {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 40px;
+}
+
+.btn {
+    color: #666666; 
+    padding: 10px 20px; 
+    text-decoration: none; 
+    font-size: 1.2rem; /* Размер текста */ 
+    background-color: #f0f0f0; /* Цвет фона */ 
+    border-radius: 5px; /* Скругленные углы */ 
+    border: none; /* Убираем границу */ 
+    transition: background-color 0.3s ease; 
+    display: inline-block; 
+    margin-top: 10px;
+} 
+.btn:hover { 
+    background-color: #2E7204; /* Цвет фона при наведении */ 
+    color: #fff; /* Цвет текста при наведении */ 
+}
+
+.white-rectangle {
+    margin-top: 40px;
+    background-color: #ffffff; 
+    padding: 20px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 450px; 
+    height: auto; 
+    position: relative;
+}
+
+/* таблица историй заказов */
+.title-history{   
+    color: #00000062;
+    font-size: 30px;
+    margin: 20px 0px;
+}
+
+.table-container {
+    width: 100%; /* Занимает всю доступную ширину */
+    overflow-x: auto; /* Добавляет прокрутку по горизонтали, если нужно */
+}
+
+.supply-table {
+    width: 95%;
+    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin: 0 30px;
+}
+
+
+.head-row {
+    display: table-row;
+    text-align: center; /* Выравнивание текста в заголовке по левому краю */
+    background-color: transparent; /* Цвет фона для заголовка */
+}
+
+.head-row th {
+    color: green; /* Цвет текста заголовка */
+    font-size: 1.2em; /* Увеличенный размер шрифта */
+    padding: 10px; /* Отступы внутри ячеек заголовка */
+    text-align: left; /* Выравнивание текста по левому краю */
+}
+
+.table-row {
+    border-bottom: 1px solid #ddd; /* Нижняя граница для строк таблицы */
+}
+
+.table-cell {
+    font-size: 18px;
+    padding: 10px; /* Отступы внутри ячеек */
+    text-align: left; /* Выравнивание текста по левому краю */
+}

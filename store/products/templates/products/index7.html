@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/index7.CSS' %}">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div class="center-container">
+        <div class="white-rectangle">
+            <div id="entry">
+                <div class="title">LOGIN TO ACCOUNT</div>
+                <form action="{% url 'index7' %}" method="POST">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <div class="input-container">
+                        <label for="{{ form.username.id_for_label }}">
+                            login
+                        </label>
+                        {{ form.username }}
+                    </div>
+
+                    <div class="input-container">
+                        <label for="{{ form.password.id_for_label }}">
+                            password
+                        </label>
+                        {{ form.password }}
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="show-password" onclick="togglePassword()"> 
+                            Show password
+                        </label>
+                    </div> 
+                    <div class='button-container'>
+                        <button type="submit" class="btn">Entry</button>
+                    </div>                 
+                </form>                   
+                <div class="link">       
+                    <a href="{% url 'index8' %}">registration</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+body {
+    font-family: 'Roboto Slab';
+    background-color: #EFEBE9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.white-rectangle {
+    background-color: #ffffff; /* Белый фон */
+    padding: 20px;
+    border: 1px solid #f0f0f0; /* Острые углы */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Легкая тень для эффекта */
+    text-align: center; /* Центрирует текст внутри */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px; /* Увеличенная ширина прямоугольника */
+    height: 670px; /* Автоматическая высота */
+    position: relative;
+}
+
+.exit {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.exit a {
+    text-decoration: none;
+    color: #000;
+    border: solid;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.exit a:hover {
+    color: #2E7204;
+}
+
+.input-container {
+    margin-bottom: 7px; /* Расстояние между полем ввода и следующим элементом */
+    text-align: center; /* Центрирует текст над полями */
+    width: 100%; /* Задает ширину полей ввода */
+}
+
+.input-container label {
+    display: block;
+    margin-bottom: 1px; /* Увеличенное расстояние снизу от метки */
+    margin-top: 5px;
+    font-size: 1.5rem; /* Увеличение размера текста над полями ввода */
+}
+
+.input-container input {
+    border: 2px solid #ccc;
+    width: 250px; /* Ширина полей ввода */
+    padding: 10px;
+    box-sizing: border-box;
+    margin-left: 0px;
+}
+
+.title {
+    color: #2E7204;
+    font-size: 48px;
+    margin-bottom: 30px; /* Увеличенное расстояние под заголовком */
+    cursor: pointer;
+}
+
+.btn {
+    color: #000; 
+    padding: 10px 20px; 
+    text-decoration: none; 
+    font-size: 1.2rem; /* Размер текста */ 
+    background-color: #f0f0f0; /* Цвет фона */ 
+    border-radius: 5px; /* Скругленные углы */ 
+    border: none; /* Убираем границу */ 
+    transition: background-color 0.3s ease; 
+    display: inline-block; 
+    margin-top: 10px;
+} 
+.btn:hover { 
+    background-color: #2E7204; /* Цвет фона при наведении */ 
+    color: #fff; /* Цвет текста при наведении */ 
+}
+
+.errorlist { 
+    color: #bd1616 !important; /* Цвет текста ошибки */
+    font-size: 0.9rem; 
+    margin-top: 5px; 
+    display: flex; 
+    align-items: center; /* Выровнять по вертикали */ 
+    vertical-align: middle; /* Выровнять по середине строки */
+} 
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #bd1616 !important; /* Цвет значка ошибки */
+    cursor: pointer; 
+    font-size: 1rem; /* Уменьшенный размер значка */ 
+    margin-top: -10px;
+    margin-left: 5px; /* Отступ для значка */
+    padding: 0; /* Убираем отступы внутри кнопки */
+    vertical-align: middle; /* Выровнять по середине строки */
+}

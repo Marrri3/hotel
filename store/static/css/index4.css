@@ -1,0 +1,461 @@
+body {
+    font-family: 'Roboto Slab';
+    background-color: #EFEBE9;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-one {
+    display: flex;
+    font-size: 24px;
+    justify-content: space-between;
+    background-color: #F5F4F3;
+    padding: 0px 10px;
+}
+
+.navbar-left, .navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-one a {
+    color: black;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.navbar-one a:hover {
+    color: #2E7204;
+}
+
+.navbar-one a#home {
+    color: #2E7204;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #2E7204;
+    margin: 4px;
+}
+
+.dropdown {
+    display: none;
+    flex-direction: column;
+    background-color: #F5F4F3;
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    z-index: 1;
+}
+
+.dropdown a {
+    padding: 10px;
+    text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-left, .navbar-right {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .navbar-one.active .dropdown {
+        display: flex;
+    }
+}
+
+.custom-select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100px; 
+    flex: 1; 
+    min-width: 200px; 
+}
+.custom-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #F5F4F3;
+    border-radius: 5px;
+    background-color: #F5F4F3;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.custom-select-wrapper::after {
+    content: '∇'; 
+    font-size: 24px;
+    position: absolute;
+    right: 10px;
+    color: #2E7204; 
+    pointer-events: none;
+}
+
+.custom-select:focus {
+    border-color: #2E7204; 
+    box-shadow: 0 0 5px (255, 99, 71, 0.5); 
+    outline: none; 
+} 
+
+.container {
+    max-width: 900px;
+    background-color: #F5F4F3;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px;
+    margin: 10px auto; /* Установите авто-марги для центрирования контейнера */
+    justify-content:space-between; /* Центрируем элементы по горизонтали */
+    align-items: center; /* Центрируем элементы по вертикали, если это необходимо*/
+    border-radius: 10px;
+}
+
+.container input {
+    padding: 10px;
+    border: 2px solid #F5F4F3;
+    background-color: #F5F4F3;
+    color: #000000;
+    font-size: 24px;
+    flex: 1; 
+    min-width: 80px; 
+}
+
+.input-container {
+    margin: 0px 3px;
+}
+
+.title {
+    color: #2E7204;
+    font-size: 2.5rem; /* Увеличенный размер шрифта */
+    margin-top: 15px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.rounded-rectangle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 70%;
+    max-width: 700px;
+    margin: 10px 0;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* Добавлено позиционирование */
+    overflow: hidden;
+}
+
+.change-data-btn {
+    color: #000000; 
+    padding: 10px 20px; 
+    text-decoration: none; 
+    font-size: 1.2rem; /* Размер текста */ 
+    background-color: #dcd9d9; /* Цвет фона */ 
+    border-radius: 5px; /* Скругленные углы */ 
+    border: none; /* Убираем границу */ 
+    transition: background-color 0.3s ease; 
+    display: block; 
+    margin-top: 10px;
+}
+
+.change-data-btn:hover { 
+    background-color: #2E7204; /* Цвет фона при наведении */ 
+    color: #fff; /* Цвет текста при наведении */ 
+}
+
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрирование текста по вертикали */
+    align-items: flex-start;
+    width: calc(100% - 120px); /* Ширина минус ширина изображения и отступы */
+    margin-left: 20px;
+    text-align: center; /* Выравнивание текста по ширине */
+}
+
+.rounded-rectangle img {
+    width: 100%; 
+    max-width: 300px; 
+    height: auto; 
+    max-height: 470px;
+    border-radius: 10px;
+}
+
+.name-of-number {
+    font-size: 2.5rem; /* Увеличенный размер шрифта */
+    margin-bottom: 10px;
+    margin-top: 0;
+    word-break: break-word;
+}
+
+.subtitle1, .subtitle {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem; /* Еще больший размер шрифта */
+}
+
+.subtitle-reserv {
+    display: flex;
+    color: #00000092;
+    flex-direction: column;
+    font-size: 1.4rem; /* Еще больший размер шрифта */
+}
+
+.subtitle-hint {
+    display: flex;
+    color: #00000092;
+    flex-direction: column;
+    justify-content: left;
+    margin: 10px 0 0 270px;
+    font-size: 1.4rem; /* Еще больший размер шрифта */
+}
+
+.subtitle-row {
+    display: flex;
+    gap: 10px;
+    margin: 5px 0;
+}
+
+
+@media (max-width: 900px) {
+    .rounded-rectangle {
+        flex-direction: column;
+    }
+    .info-container {
+        width: 100%; /* Ширина 100% для контейнера */
+        margin-left: 0;
+        text-align: center; /* Выравнивание текста по центру */
+    }
+    .subtitle {
+        font-size: 1.5rem;
+    }
+    .name-of-number {
+        font-size: 2rem;
+    }
+    .subtitle1 {
+        font-size: 1.5rem;
+    }
+    .reservation-link {
+        font-size: 1.5rem;
+        padding: 8px 15px;
+    }
+    .subtitle-hint {
+        margin: 10px 0 0 20px;
+    }
+}
+
+.footer {
+    font-size: 20px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer .left, .footer .right {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 40px;
+}
+
+.btn {
+    display: inline-block;
+    color: #000000; 
+    padding: 10px 20px; 
+    text-decoration: none; 
+    font-size: 1.2rem; /* Размер текста */ 
+    background-color: #dcd9d9; /* Цвет фона */ 
+    border-radius: 5px; /* Скругленные углы */ 
+    border: none; /* Убираем границу */ 
+    transition: background-color 0.3s ease; 
+    margin: 7px 3px;
+} 
+.btn:hover { 
+    background-color: #2E7204; /* Цвет фона при наведении */ 
+    color: #fff; /* Цвет текста при наведении */ 
+}
+
+.add-btn{
+    display: flex;
+    justify-content: left;
+}
+
+/* модальное окно */
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Фиксированное позиционирование */
+    z-index: 1; /* Сверху других элементов */
+    left: 0;
+    top: 0;
+    width: 100%; /* Полная ширина */
+    height: 100%; /* Полная высота */
+    background-color: rgba(0, 0, 0, 0.4); /* Полупрозрачный фон */
+}
+
+/* Содержимое модального окна */
+.modal-content {
+    position: absolute;
+    top: 50%; /* Вертикальное центрирование */
+    left: 50%; /* Горизонтальное центрирование */
+    transform: translate(-50%, -50%); /* Сдвиг центра */
+    background-color: #fefefe;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; /* Ширина модального окна */
+    max-width: 600px; /* Максимальная ширина */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+    border-radius: 10px; /* Скругление углов */
+}
+
+
+
+.modal-title {
+    font-size: 30px;
+    margin-bottom: 20px; /* Отступ снизу */
+    text-align: left; /* Выровнено по левому краю */
+    color: #2E7204;
+}
+
+.modal-input-container {
+    margin-bottom: 15px; /* Отступ между полями */
+}
+
+label {
+    display: block; /* Выровнено по горизонтали */
+    margin-bottom: 5px; /* Отступ под заголовком */
+    text-align: left; /* Выровненно по левому краю */
+}
+
+input {
+    width: 100%; /* Поле ввода на всю ширину родителя */
+    padding: 8px; /* Внутренние отступы */
+    border: 1px solid #ccc; /* Рамка поля ввода */
+    border-radius: 4px; /* Скругление углов поля ввода */
+}
+
+.btn-modal {
+    font-size: 18px;
+    background-color: #dcd9d9; /* Цвет фона */ 
+    color: #000000;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-modal:hover {
+    background-color: #2E7204; 
+    color: #dcd9d9;
+    transition: background-color 0.3s ease; 
+}
+
+.close {
+    cursor: pointer; /* Курсор при наведении на кнопку закрытия */
+    float: right; /* Выравнивание справа */
+    font-size: 28px; /* Размер шрифта */
+    font-weight: bold; /* Жирный текст */
+}
+
+.input-text{
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+.custom-select-option{
+    appearance: none;
+    width: 103%;
+    padding: 8px;
+    border: 2px solid #F5F4F3;
+    border-radius: 10px;
+    background-color: transparent;
+    color: black;
+    font-size: 18px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+
+.input-text:hover{
+    background-color: #00000017;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.input-text-block{
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.51);
+    border-radius: 10px;
+    background: #00000017;
+}
+
+.input-title{
+    font-size: 20px;
+}
+
+.container-icon {
+    position: absolute; 
+    right: 10px; 
+    bottom: 10px; 
+    display: flex;
+    align-items: center; 
+  }
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center; /* Вертикальное выравнивание */
+}
+
+.hint {
+    position: absolute;
+    right: 10px; /* Отступ от правого края инпута */
+    pointer-events: none; /* Чтобы клики проходили через элемент */
+    color: #aaa; /* Цвет символа валюты */
+    font-size: 16px; /* Размер шрифта для символа валюты */
+    line-height: 1.5; /* вертикальное выравнивание с инпутом */
+}
+
+/* Стили для выпадающего списка при наведении */
+.input-text-option:hover {
+    background-color: #00000017; /* Цвет границы при наведении */
+    transition: background-color 0.3s ease; 
+    cursor: pointer;
+}
+
+
+/* Стили для опций выпадающего списка */
+.input-text-option option {
+    padding: 10px; /* Внутренние отступы для опций */
+    background-color: #2E7204;
+}

@@ -1,0 +1,136 @@
+body {
+    font-family: 'Roboto Slab';
+    background-color:#EFEBE9;
+    margin: 0;
+    padding: 0;
+}
+
+
+.btn { 
+    color: #000; 
+    padding: 10px 20px; 
+    text-decoration: none; 
+    font-size: 1.2rem; 
+    background-color: #f0f0f0; 
+    border-radius: 5px; 
+    border: none; 
+    transition: background-color 0.3s ease; 
+    cursor: pointer; /* Добавление курсора руки при наведении */ 
+    display: inline-block; /* Отображение кнопки как блочного элемента */ 
+    margin-top: 10px; 
+    text-align: center; 
+}
+ 
+ .btn:hover { 
+    background-color: #2E7204; 
+    color: #fff; 
+}
+
+.button-container { 
+    display: flex; /* Используем Flexbox для контейнера кнопки */ 
+    justify-content: center; /* Центрируем кнопку по горизонтали */ 
+    width: 100%; /* Заставляем контейнер занимать всю ширину */ 
+    margin-top: 10px; /* Дополнительный отступ сверху */ 
+}
+
+.input-container label {
+    display: block;
+    margin-bottom: 1px;
+    margin-top: 5px;
+    font-size: 1.5rem;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.white-rectangle {
+    background-color: #fff;
+    border: 1px solid #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: auto;
+    flex-direction: column; /* Для вертикального выравнивания */ 
+    justify-content: center; /* Для вертикального выравнивания */ 
+    align-items: center;
+}
+
+.input-container {
+    margin-bottom: 10px;
+}
+
+.title {
+    font-size: 27px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2E7204;
+}
+
+#login, #password {
+    width: 95%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+
+.link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.link a {
+    color: #000;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.link a:hover {
+    background-color: #2E7204;
+    color: #fff;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+#show-password {
+    margin-right: 5px;
+    transform: scale(1.2);
+    appearance: auto;
+}
+
+label {
+    font-size: 14px;
+    color: #333;
+}
+
+.errorlist { 
+    color: #bd1616 !important; /* Цвет текста ошибки */ 
+    font-size: 0.9rem; 
+    margin-top: 5px; 
+    display: flex; 
+    align-items: center; /* Выровнять по вертикали */ 
+}

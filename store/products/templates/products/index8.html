@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index8.css' %}">
+    <title>{{ title }}</title>
+    <script>
+        // Скрипт для скрытия сообщений об ошибках 
+        function hideError(errorId) { 
+            var errorElement = document.getElementById(errorId); 
+            if (errorElement) { 
+                errorElement.style.display = 'none'; 
+            } 
+        }
+    </script>
+</head>
+<body>
+
+<div class="center-container">
+    <div class="white-rectangle">
+        <div class="exit">
+            <a href="{% url 'index7' %}"></a>
+        </div>
+         <div id="registration">
+            <div class="title">REGISTRATION</div>
+        </div>
+        <form action="{% url 'index8' %}" method='POST'>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="input-container">
+                <label for="{{ form.first_name.id_for_label }}">
+                    name
+                </label>  
+                {% if form.first_name.errors %}
+                <div id="error_first_name" class="errorlist"> 
+                    {{ form.first_name.errors }} 
+                    <button type="button" class="close-btn" onclick="hideError('error_first_name')">x</button>
+                </div>
+                {% endif %}
+                {{ form.first_name }}
+            </div>
+            <div class="input-container">
+                <label for="{{ form.last_name.id_for_label }}">
+                    surname
+                </label>
+                {% if form.last_name.errors %}
+                <div id="error_last_name" class="errorlist"> 
+                    {{ form.last_name.errors }} 
+                    <button type="button" class="close-btn" onclick="hideError('error_last_name')">x</button>
+                </div>
+                {% endif %}
+                {{ form.last_name }}
+            </div>
+            
+            <div class="input-container">
+                <label for="{{ form.email.id_for_label }}">
+                    e-mail
+                </label>
+                {% if form.email.errors %}
+                <div id="error_email" class="errorlist"> 
+                    {{ form.email.errors }} 
+                    <button type="button" class="close-btn" onclick="hideError('error_email')">x</button> 
+                </div>
+                {% endif %}
+                {{ form.email }}
+            </div>
+            <div class="input-container">
+                <label for="{{ form.username.id_for_label }}">
+                    login
+                </label>
+                {% if form.username.errors %}
+                <div id="error_username" class="errorlist"> 
+                    {{ form.username.errors }} 
+                    <button type="button" class="close-btn" onclick="hideError('error_username')">x</button>
+                </div>
+                {% endif %}
+                {{ form.username }}
+            </div>
+
+            <div class="input-container">
+                <label for="{{ form.password1.id_for_label}}">
+                    password
+                </label>
+                {% if form.password1.errors %}
+                <div id="error_password1" class="errorlist"> 
+                    {{ form.password1.errors }} 
+                    <button type="button" class="close-btn" onclick="hideError('error_password1')">x</button> 
+                </div>
+                {% endif %}
+                {{ form.password1 }}
+            </div> 
+            <div class="input-container">
+                <label for="{{ form.password2.id_for_label}}">
+                    confirm password
+                </label>
+                {% if form.password2.errors %}
+                <div id="error_password2" class="errorlist"> 
+                    {{ form.password2.errors }} 
+                    <button type="button" class="close-btn" onclick="hideError('error_password2')">x</button>
+                </div>
+                {% endif %}
+                {{ form.password2 }}
+            </div>
+            <button type="submit" class='btn'>Register</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

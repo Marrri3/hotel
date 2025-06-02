@@ -1,0 +1,90 @@
+{% extends 'products/base.html'%}
+{% load static %}
+
+{% block CSS%}
+  <link rel="stylesheet" href="{% static 'css/index3.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main-content">
+    <form action="{% url 'index3' %}" method='post'>
+        {% csrf_token %}
+        <div class="white-rectangle">
+            <div id='profile'>
+                <div class="title">PROFILE</div>
+            </div>
+            <div class="input-container">
+                <div class='input-container-left'>
+                    <label for="{{ form.first_name.id_for_label }}">
+                        NAME
+                    </label>
+                    {{ form.first_name }}
+                    <label for="{{ form.last_name.id_for_label }}">
+                        SURNAME
+                    </label>
+                    {{ form.last_name }}
+                </div>
+                <div class='input-container-right'>
+                    <label for="{{ form.username.id_for_label }}">
+                        LOGIN
+                    </label>
+                    {{ form.username }}
+                    <label for="{{ form.email.id_for_label }}">
+                        E-MAIL
+                    </label>
+                    {{ form.email }}
+                </div>
+            </div>
+            <div class="button-container">
+                <button type="submit" class='btn'>save changes</button>
+                <a href="{% url 'custom_logout' %}" class='btn'>exit</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div class='title-history'>
+  Orders history
+</div>
+    <div class="order-history">
+    <div class="table-container">
+        {% if reservations %}
+            <table class="supply-table">
+                <thead>
+                    <tr class="head-row">
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Date</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for reservation in reservations %}
+                    <tr class="table-row">
+                        <td class="table-cell">{{ reservation.from_date }}</td>
+                        <td class="table-cell">{{ reservation.to_date }}</td>
+                        <td class="table-cell">{{ reservation.date_of_purchases }}</td>
+                        <td class="table-cell">{{ reservation.price }} $</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Нет заказов</p>
+        {% endif %}
+    </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+<footer class="footer">
+    <div class="left">
+      <div class="bottom-subtitle">Spain, Bilbao</div>
+      <div class="bottom-subtitle">Calle iscar peyra 15-17</div>
+    </div>
+    <div class="right">
+      <div class="bottom-subtitle">General manager:</div>
+      <div class="bottom-subtitle">Eugenia Marcos Lopez</div>
+    </div>
+</footer>
+{% endblock %}
+

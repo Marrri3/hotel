@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/index5.css' %}">
+    <title>{{ title }}</title>
+</head>
+    <body>
+<body>
+
+<div class="center-container">
+    <div class="white-rectangle">
+         <div id="reservation">
+            <div class="title">RESERVATION</div>
+        </div>      
+        <div class="input-container">
+            <label for="card-number">card number</label>
+            <input type="text" id="card-number" name="card-number" maxlength="16" placeholder="0000 0000 0000 0000" pattern="[0-9\s]{13,19}" required>
+            <small>Введите номер карты (16 цифр)</small>
+        </div>
+        <div class="row">
+            <div class="input-container">
+                <label for="valid-until">valid until</label>
+                <input type="text" id="valid-until" name="valid-until" maxlength="5" pattern="\d{2}/\d{2}" placeholder="MM/YY" required>
+                <small>Введите срок действия карты в формате MM/YY</small>
+            </div>
+            
+            <div class="input-container">
+                <label for="cvv">CVV/CVC</label>
+                <input type="text" id="cvv" name="cvv" maxlength="3" placeholder="123" pattern="\d{3}" required>
+                <small>Введите CVV/CVC-код (3 цифры)</small>
+            </div>
+        </div>
+        <form method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div id="pay">
+            <button type='submit' class="btn">PAY</button>
+        </div>
+        </form>
+    </div>
+</div>
+
+ 

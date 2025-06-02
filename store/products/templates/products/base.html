@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> {% endcomment %}
+    {% block CSS%}  {% endblock %}
+    <title>{{ title }}</title>
+</head>
+<body>
+
+<div class="navbar-one">
+    <div class="hamburger" onclick="toggleDropdown()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="navbar-left">
+        <a href="{% url 'index' %}" id="home">FOUR SEASON</a>
+        <a href="{% url 'index2' %}">about</a>
+        <a href="{% url 'index4' %}">catalog</a> 
+    </div>
+    <div class="navbar-right">
+        {% if user.is_authenticated %}
+            <a href="{% url 'index3' %}" id="profile">profile</a> 
+        {% else %} 
+            <a href="{% url 'index7' %}" id="entry">entry</a>
+        {% endif %}
+
+    </div>
+    <div class="dropdown" id="dropdown-menu">
+        <a href="{% url 'index' %}" id="home-dropdown">FOUR SEASON</a>
+        <a href="{% url 'index2' %}">about</a>
+        <a href="{% url 'index4' %}">catalog</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'index3' %}" id="profile-dropdown">profile</a> 
+        {% else %} 
+            <a href="{% url 'index7' %}" id="entry-dropdown">entry</a>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+    function toggleDropdown() {
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
+    }
+</script>
+
+
+{% block content %} {% endblock %}
+
+{% block footer %} {% endblock %}
+
+{% block script%} {% endblock %}
+
+</body>
+</html>
+
