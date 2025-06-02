@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index4.CSS">
+    <title>FOUR SESON</title>
+</head>
+<body>
+
+  <div class="navbar-one">
+    <div class="hamburger" onclick="toggleDropdown()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="navbar-left">
+        <a href="index.html" id="home">FOUR SEASON</a>
+        <a href="index2.html">about</a>
+    </div>
+    <div class="navbar-right">
+        <a>+34 333 3333333</a>
+        <a href="index7.html" id="entry">entry</a>
+        <a href="index3.html" id="profile">profile</a>
+    </div>
+    <div class="dropdown" id="dropdown-menu"></div>
+        <a href="index.html" id="home-dropdown">FOUR SEASON</a>
+        <a href="index2.html">about</a>
+        <a href="index7.html" id="entry-dropdown">entry</a>
+        <a href="index3.html" id="profile-dropdown">profile</a>
+    </div>
+</div>
+
+<div id="about">
+    <div class="title">CATALOG</div>    
+</div>
+
+<div class="center-container">
+    <div class="rounded-rectangle">
+        <img src="image/pic1.jpeg" id="pic1">      
+        <div class="info-container">
+            <div class="name-of-number">name of number</div>
+            <div id="number">
+                <div class="left-column">
+                    <div class="subtitle1">type:</div>
+                    <div class="subtitle">single</div>
+                    <div class="subtitle1">floor:</div>
+                    <div class="subtitle">second</div>
+                </div>
+                <div class="right-column">
+                    <div class="subtitle1">rooms:</div>
+                    <div class="subtitle">one</div>
+                    <div class="subtitle1">beds:</div>
+                    <div class="subtitle">one</div>
+                </div>
+                <a href="index5.html" class="reservation-link">reservation</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="center-container">
+    <div class="rounded-rectangle">
+        <img src="image/pic2.jpeg" id="pic1">
+        <div class="info-container">
+            <div class="name-of-number">name of number</div>
+            <div id="number">
+                <div class="left-column">
+                    <div class="subtitle1">type:</div>
+                    <div class="subtitle">single</div>
+                    <div class="subtitle1">floor:</div>
+                    <div class="subtitle">second</div>
+                </div>
+                <div class="right-column">
+                    <div class="subtitle1">rooms:</div>
+                    <div class="subtitle">one</div>
+                    <div class="subtitle1">beds:</div>
+                    <div class="subtitle">one</div>
+                </div>
+                <a href="index5.html" class="reservation-link">reservation</a>
+            </div>
+        </div>       
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="left">
+      <div class="bottom-subtitle">Spain, Bilbao</div>
+      <div class="bottom-subtitle">Calle iscar peyra 15-17</div>
+    </div>
+    <div class="right">
+      <div class="bottom-subtitle">General manager:</div>
+      <div class="bottom-subtitle">Eugenia Marcos Lopez</div>
+    </div>
+  </footer>
+  </div>
+
+<script>
+    function toggleDropdown() {
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
+    }
+</script>
+
+</body>

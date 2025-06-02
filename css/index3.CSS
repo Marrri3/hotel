@@ -1,0 +1,185 @@
+body{
+    font-family: 'Roboto Slab';
+    background-color: #EFEBE9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    text-align: center;
+}
+
+.navbar-one {
+    display: flex;
+    justify-content: space-between;
+    background-color: #F5F4F3;
+    padding: 5px 10px;
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.navbar-left, .navbar-right {
+    display: flex;
+    flex-direction: center;
+    padding-left: 10px;
+    padding-right: 40px;
+}
+
+.navbar-one a {
+    color: black;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.navbar-one a:hover {
+    color: #2E7204;
+}
+
+.navbar-one a#home {
+    color: #2E7204;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #2E7204;
+    margin: 4px;
+}
+
+.dropdown {
+    display: none;
+    flex-direction: column;
+    background-color: #F5F4F3;
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    z-index: 1;
+}
+
+.dropdown a {
+    padding: 10px;
+    text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-left, .navbar-right {
+    display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .navbar-one.active .dropdown {
+        display: flex;
+    }
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.title {
+    color: #2E7204;
+    font-size: 44px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    text-align: center;
+}
+
+.main-container {
+    width: 300px;
+}
+
+.input-container {
+    width: 250%;
+    margin-bottom: 20px;
+}
+
+.input-container label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.subtitle {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+#save-change {
+    width: 100%;
+    text-align: center;
+}
+
+.title {
+    margin-top: 20px;
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.custom-submit-button {
+    color: #000000;
+    background-color: #EFEBE9;
+    text-align: center;
+    border: none;
+    font-size: 24px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.custom-submit-button:hover {
+    color: #2E7204;
+}
+
+.footer {
+    font-size: 20px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer .left, footer.right {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 40px;
+}

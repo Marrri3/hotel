@@ -1,0 +1,109 @@
+{% extends 'products/base.html' %}{% load static%}
+{% block CSS%}
+  <link rel="stylesheet" href="{% static '/css/index.css' %}">{% endblock %}
+
+{% block catalog %}<a href="#catalog">catalog</a>
+{% endblock %}
+{% block catalog_hambyrger%} 
+<a href="#catalog">catalog</a>{% endblock %} 
+
+{% block content %}
+
+<body> 
+<div id="home">
+    <div class="title">FOUR SEASON</div>  
+    <div class="subtitle">hotel</div>
+    <div class="image-container">    
+        <img src="{% static '/image/image1.jpg' %}" id="img1">
+        <img src="{% static '/image/image2.jpg' %}" id="img2">    
+        <img src="{% static '/image/image3.jpg' %}" id="img3">
+        <img src="{% static '/image/image4.jpg' %}" id="img4">  
+    </div>
+</div>  
+<div class="title">CATALOG</div>
+    <form id="bookingForm" class="container" method="post" action="{% url 'index' %}">        
+    {% csrf_token %}
+        <div class="input-container">            
+            <label for="{{ form.checkin.id_for_label }}">
+                Дата въезда            
+            </label>
+            {{ form.checkin }}        
+        </div>
+        <div class="input-container">            
+            <label for="{{ form.checkout.id_for_label }}">
+                Дата выезда            
+            </label>
+            {{ form.checkout }}        
+        </div>
+        <div class="input-container">            
+            <label for="{{ form.type.id_for_label }}">
+                Тип            
+            </label>
+            {{ form.type }}        
+        </div>
+        <div class="input-container">            
+            <label for="{{ form.rooms.id_for_label }}">
+                Количество комнат            
+            </label>
+            {{ form.rooms }}        
+        </div>
+        <div class='button-container'>
+            <button type="submit" class="btn">SEARCH</button>        
+        </div>
+    </form>    
+    <img src="{% static 'image/image5.jpg' %}" id="img5">
+</div>
+<script>
+    document.getElementById('searchButton').addEventListener('click', function() {        
+        const checkin = document.getElementById('checkin').value;
+        const checkout = document.getElementById('checkout').value;        
+        const type = document.getElementById('comboBox1').value;
+        const rooms = document.getElementById('comboBox2').value;
+        fetch('/search', {        
+            method: 'POST', headers: {            
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'        
+            },
+            body: JSON.stringify({ 
+                checkin, checkout, type, rooms 
+            })    
+        })
+        .then(response => response.json())    .then(data => { // Перенаправление на следующую страницу с результатами        
+            const catalogUrl = "{% url 'index4' %}"; // URL страницы с результатами
+            window.location.href = 'index4' + "?data=" + encodeURIComponent(JSON.stringify(data.results));    
+            })
+        .catch(error => {        
+            console.error('Error:', error);
+        });
+    });
+</script>
+{% endblock %}
+
+{% block footer %}
+<footer class="footer">  
+    <div class="left">
+        <div class="bottom-subtitle">Spain, Bilbao</div>    
+        <div class="bottom-subtitle">Calle iscar peyra 15-17</div>
+    </div>  
+    <div class="right">
+        <div class="bottom-subtitle">General manager:</div>    
+        <div class="bottom-subtitle">Eugenia Marcos Lopez</div>
+    </div>
+</footer>
+{% endblock %}
+
+{% block script %}
+<script>
+  document.getElementById('bookingForm').addEventListener('submit', 
+    function(event) {      
+        event.preventDefault();
+        const checkin = document.getElementById('checkin').value;      
+        const checkout = document.getElementById('checkout').value;
+        const option1 = document.getElementById('comboBox1').value;      
+        const option2 = document.getElementById('comboBox2').value;
+      // Отправка данных на сервер (пример)
+        console.log(`Дата въезда: ${checkin}, Дата выезда: ${checkout}, Опция 1: ${option1}, Опция 2: ${option2}`);  
+    });
+</script>
+{% endblock %}
+</body>

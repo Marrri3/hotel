@@ -1,0 +1,123 @@
+body {
+    font-family: 'Roboto Slab';
+    background-color: #EFEBE9;
+    /* text-align: center; */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto Slab';
+    background-color: #EFEBE9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.white-rectangle {
+    background-color: #ffffff; /* Белый фон */
+    padding: 20px;
+    border: 1px solid #f0f0f0; /* Острые углы */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Легкая тень для эффекта */
+    text-align: center; /* Центрирует текст внутри */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px; /* Увеличенная ширина прямоугольника */
+    height: 670px; /* Автоматическая высота */
+    position: relative;
+}
+
+.exit {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.exit a {
+    text-decoration: none;
+    color: #000;
+    border: solid;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.exit a:hover {
+    color: #2E7204;
+}
+
+.input-container {
+    margin-bottom: 20px; /* Расстояние между полем ввода и следующим элементом */
+    text-align: center; /* Центрирует текст над полями */
+    width: 100%; /* Задает ширину полей ввода */
+}
+
+.input-container label {
+    display: block;
+    margin-bottom: 1px; /* Увеличенное расстояние снизу от метки */
+    margin-top: 5px;
+    font-size: 1.5rem; /* Увеличение размера текста над полями ввода */
+}
+
+/* .input-container input {
+    width: 250px; 
+    padding: 10px;
+    box-sizing: border-box;
+    margin-left: 0px;
+} */
+
+.title {
+    color: #2E7204;
+    font-size: 48px;
+    margin-bottom: 30px; /* Увеличенное расстояние под заголовком */
+    cursor: pointer;
+}
+
+.title1 {
+    color: #2E7204;
+    font-size: 48px;
+    margin-bottom: 30px; /* Увеличенное расстояние под заголовком */
+    cursor: pointer;
+}
+
+.title1:hover {
+    color: rgb(0, 0, 0); /* Цвет при наведении курсора */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.custom-submit-button {
+    color: #000000;
+    background-color: #EFEBE9;
+    text-align: center;
+    border: none;
+    font-size: 24px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.custom-submit-button:hover {
+    color: #2E7204;
+}

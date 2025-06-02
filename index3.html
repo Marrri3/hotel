@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index3.CSS">
+    <title>FOUR SESON</title>
+</head>
+<body>
+
+<div class="navbar-one">
+    <div class="hamburger" onclick="toggleDropdown()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="navbar-left">
+        <a href="index.html" id="home">FOUR SEASON</a>
+        <a href="index2.html">about</a>
+            <!-- <a href="#catalog">catalog</a> -->
+    </div>
+    <div class="navbar-right">
+        <a>+34 333 3333333</a>
+        <a href="index7.html" id="entry">entry</a>
+        <a href="index3.html" id="profile">profile</a>
+    </div>
+    <div class="dropdown" id="dropdown-menu">
+        <a href="index.html" id="home-dropdown">FOUR SEASON</a>
+        <a href="index2.html">about</a>
+        <a href="index7.html" id="entry-dropdown">entry</a>
+        <a href="index3.html" id="profile-dropdown">profile</a>
+    </div>
+</div>
+    
+ 
+<div class="main-content">
+    <div class="title">PROFILE</div>
+    <div class="input-container">
+        <label for="name">NAME</label>
+        <input type="text" id="name" name="name">
+        <label for="surname">SURNAME</label>
+        <input type="text" id="surname" name="surname">
+        <label for="passport">SERIES/NUMBER PASSPORT</label>
+        <input type="text" id="passport" name="passport">
+        <label for="telephone">TELEPHONE NUMBER</label>
+        <input type="tel" id="telephone" name="telephone">
+        <label for="email">E-MAIL</label>
+        <input type="text" id="email" name="email">
+    </div>
+    <div class="button-container">
+        <button class="custom-submit-button">SAVE CHANGES</button>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="left">
+      <div class="bottom-subtitle">Spain, Bilbao</div>
+      <div class="bottom-subtitle">Calle iscar peyra 15-17</div>
+    </div>
+    <div class="right">
+      <div class="bottom-subtitle">General manager:</div>
+      <div class="bottom-subtitle">Eugenia Marcos Lopez</div>
+    </div>
+  </footer>
+  </div>
+
+<script>
+    function toggleDropdown() {
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
+    }
+</script>
+
+</body>
